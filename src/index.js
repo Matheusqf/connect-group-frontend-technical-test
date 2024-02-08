@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import VehicleList from './components/VehicleList';
 import './global-styles.scss';
+import VehiclesPage from './pages/vehicles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <VehicleList />
+    <VehiclesPage />
   </React.StrictMode>,
   document.querySelector('.root')
 );

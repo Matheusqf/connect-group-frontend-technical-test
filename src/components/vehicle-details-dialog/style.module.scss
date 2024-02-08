@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss";
+
+.vehicle-details-dialog {
+    &__header {
+        display: flex;
+
+        @media screen and (min-width: #{$breakpoint-tablet-min}) {
+            flex-flow: column;
+        }
+
+        align-items: center;
+        padding: 20px;
+    }
+
+    &__header-info {
+        margin-left: 20px;
+    }
+
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    &__subtitle {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    &__content {
+        padding: 20px;
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            padding: 0 20px;
+        }
+    }
+
+    &__description {
+        font-size: 16px;
+        margin: 0 0 20px 0;
+    }
+
+    &__details {
+        font-size: 14px;
+    }
+
+    &__details-title {
+        font-weight: bold;
+        margin: 0 0 10px 0;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__list-item {
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            width: 50%;
+        }
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+        strong {
+            margin-right: 10px;
+        }
+    }
+}
