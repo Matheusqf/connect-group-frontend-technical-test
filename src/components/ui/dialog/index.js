@@ -7,16 +7,17 @@ const ANIMATION_DURATION = 300;
 const Dialog = ({ isOpen, onClose, children, customClassName = '' }) => {
     const [isRendered, setIsRendered] = useState(isOpen);
     const closeButtonRef = useRef(null);
+    const overlayRef = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
+            overlayRef.current?.classList.remove(styles['fade-out-and-slide-down']);
             setIsRendered(true);
             setTimeout(() => {
                 closeButtonRef.current?.focus();
             }, ANIMATION_DURATION);
         } else {
-            const overlay = document.querySelector(`.${styles.dialog__overlay}`);
-            overlay.classList.add(styles['fade-out-and-slide-down']);
+            overlayRef.current?.classList.add(styles['fade-out-and-slide-down']);
             setTimeout(() => {
                 setIsRendered(false);
             }, ANIMATION_DURATION);
@@ -41,9 +42,13 @@ const Dialog = ({ isOpen, onClose, children, customClassName = '' }) => {
 
     const dialogRoot = document.getElementById('dialog-root');
     if (!isRendered || !dialogRoot) return null;
+
     return ReactDOM.createPortal(
         <div className={styles.dialog}>
-            <div className={`${styles.dialog__overlay} ${customClassName}`}>
+            <div
+                className={`${styles.dialog__overlay} ${customClassName}`}
+                ref={overlayRef} // Set the ref to the overlay
+            >
                 <div className={styles.dialog__content}>
                     <button
                         type="button"
