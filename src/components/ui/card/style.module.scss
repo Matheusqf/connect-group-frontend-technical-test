@@ -1,0 +1,44 @@
+@import "../../../styles/variables.scss";
+
+@import "../../../styles/animations.scss";
+
+.vehicle-card {
+    animation: fade-in 1s ease-in-out forwards;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+
+    @media screen and (min-width: #{$breakpoint-tablet-min}) {
+        flex-direction: column;
+    }
+
+    @media screen and (min-width: #{$breakpoint-tablet-min}) {
+        flex-direction: column;
+    }
+    border-bottom: 1px solid $terciary-color;
+
+    @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+        border-right: 1px solid $terciary-color;
+    }
+
+    @media (min-width: $breakpoint-desktop-min) {
+        border-bottom: 0;
+        &:not(:last-child) {
+            border-right: 1px solid $terciary-color;
+        }
+    }
+    &:not(.loading) {
+        cursor: pointer;
+    }
+
+    &:hover {
+        &:after {
+            opacity: 1;
+        }
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+        z-index: 99;
+        border: none;
+        background-color: $white;
+    }
+}

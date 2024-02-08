@@ -1,0 +1,45 @@
+@import "../../../styles/variables.scss";
+
+.skeleton-card {
+    background-color: $terciary-color;
+    border-radius: 4px;
+    padding: 10px;
+
+    &__image {
+        background-color: $white;
+        border-radius: 4px;
+        height: 170px;
+        margin-bottom: 10px;
+        width: 170px;
+    }
+
+    &__body {
+        background-color: $white;
+        border-radius: 4px;
+        height: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    @media screen and (min-width: $breakpoint-tablet-min) {
+        &__image {
+            height: 200px;
+            width: 200px;
+        }
+
+        &__body {
+            height: 30px;
+        }
+    }
+
+    @media screen and (min-width: $breakpoint-desktop-min) {
+        &__image {
+            height: 250px;
+            width: 100%;
+        }
+
+        &__body {
+            height: 40px;
+        }
+    }
+}

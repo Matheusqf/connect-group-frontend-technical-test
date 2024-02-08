@@ -1,0 +1,25 @@
+@import "../../../../styles/variables.scss";
+
+$thumbnail-size-mobile: 170px;
+
+.card__image {
+    height: $thumbnail-size-mobile;
+    width: $thumbnail-size-mobile;
+
+    @media screen and (min-width: #{$breakpoint-tablet-min}) {
+        height: auto;
+        width: 100%;
+    }
+
+    // Override styles for mobile to fix image size
+    @media screen and (max-width: #{$breakpoint-tablet-min - 1}) {
+        height: $thumbnail-size-mobile;
+        width: $thumbnail-size-mobile;
+    }
+}
+
+.card__image__img {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}

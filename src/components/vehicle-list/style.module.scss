@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.vehicle-list,
+.vehicle-list__loading {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $breakpoint-tablet-min) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $breakpoint-desktop-min) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
