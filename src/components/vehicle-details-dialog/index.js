@@ -2,6 +2,7 @@ import React from 'react';
 import Dialog from '../../components/ui/dialog';
 import styles from './style.module.scss';
 import VehicleCardImage from '../../components/ui/card/card-image';
+import MoreInfo from '../../components/ui/more-info';
 
 const VehicleCardDetailsDialog = ({ onClose, isOpen, details }) => {
     const {
@@ -25,42 +26,7 @@ const VehicleCardDetailsDialog = ({ onClose, isOpen, details }) => {
                     </p>
                 </div>
             </div>
-            <div className={styles['vehicle-details-dialog__content']} data-testid="vehicle-details-dialog__content">
-                <p className={styles['vehicle-details-dialog__description']} data-testid="vehicle-details-dialog__description">{description}</p>
-
-                <div className={styles['vehicle-details-dialog__details']}>
-                    <p className={styles['vehicle-details-dialog__details-title']}>
-                        Details:
-                    </p>
-                    <ul className={styles['vehicle-details-dialog__list']}>
-                        <li className={styles['vehicle-details-dialog__list-item']}>
-                            <strong>Model Year:</strong>
-                            <span>{modelYear}</span>
-                        </li>
-                        <li className={styles['vehicle-details-dialog__list-item']}>
-                            <strong>Body Styles:</strong>
-                            <span>{meta.bodystyles.join(', ')}</span>
-                        </li>
-                        <li className={styles['vehicle-details-dialog__list-item']}>
-                            <strong>Drive Train:</strong>
-                            <span>{meta.drivetrain.join(', ')}</span>
-                        </li>
-                        <li className={styles['vehicle-details-dialog__list-item']}>
-                            <strong>Seats:</strong>
-                            <span>
-                                {meta.passengers}
-                            </span>
-                        </li>
-                        <li className={styles['vehicle-details-dialog__list-item']}>
-                            <strong>{meta.emissions.template.split('$value')[0]}</strong>
-                            <span>
-                                {meta.emissions.value}
-                                {meta.emissions.template.split('$value')[1]}
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <MoreInfo details={details}></MoreInfo>
         </Dialog>
     );
 };

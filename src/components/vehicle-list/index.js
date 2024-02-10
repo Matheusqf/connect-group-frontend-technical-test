@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.module.scss';
-import VehicleCard from '../ui/card';
+import Card from '../ui/card';
 import VehicleCardDetailsDialog from '../vehicle-details-dialog';
 import Skeleton from '../ui/skeleton';
 
@@ -29,7 +29,7 @@ const VehicleList = React.memo(function VehicleList(props) {
     <div data-testid="results" className={styles['vehicle-list']}>
       {vehicles.length > 0 ? (
         vehicles.map(vehicle => (
-          <VehicleCard
+          <Card
             key={vehicle.id}
             vehicle={vehicle}
             loading={loading}

@@ -7,29 +7,24 @@ export default function useData() {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        let isCancelled = false;
+        const controller = new AbortController();
+        const { signal } = controller;
 
         const fetchVehicles = async () => {
             try {
-                const response = await getData();
-                if (!isCancelled) {
-                    setVehicles(response);
-                }
+                const response = await getData({ signal });
+                setVehicles(response);
             } catch (err) {
-                if (!isCancelled) {
-                    setError(err.message);
-                }
+                setError(err.message);
             } finally {
-                if (!isCancelled) {
-                    setLoading(false);
-                }
+                setLoading(false);
             }
         };
 
         fetchVehicles();
 
         return () => {
-            isCancelled = true;
+            controller.abort();
         };
     }, []);
 

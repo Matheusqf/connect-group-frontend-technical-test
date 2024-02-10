@@ -1,0 +1,53 @@
+@import "../../../styles/variables.scss";
+
+.more-info {
+    &__content {
+        padding: 20px;
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            padding: 0 20px;
+        }
+    }
+
+    &__description {
+        font-size: 16px;
+        margin: 0 0 20px 0;
+    }
+
+    &__details {
+        font-size: 14px;
+        margin: 10px 0 0 0;
+
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &-title {
+            font-weight: bold;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media screen and (min-width: #{$breakpoint-desktop-min}) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &-item {
+            @media screen and (min-width: #{$breakpoint-desktop-min}) {
+                width: 50%;
+            }
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+
+            strong {
+                margin-right: 10px;
+            }
+        }
+    }
+}
