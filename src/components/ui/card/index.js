@@ -36,9 +36,19 @@ const Card = ({ vehicle, onClick }) => {
         >
             <CardImage media={media} name={`Vehicle ${id} card`} />
             <CardBody vehicle={vehicle} />{expanded ? (
-                <button onClick={toggleExpanded}>Read less</button>
+                <button
+                    className={styles['vehicle-card__btn']}
+                    onClick={toggleExpanded}
+                    aria-label="Read less"
+                    tabIndex="0"
+                >Read less</button>
             ) : (
-                <button onClick={toggleExpanded}>Read more</button>
+                <button
+                    className={styles['vehicle-card__btn']}
+                    onClick={toggleExpanded}
+                    aria-label="Read more"
+                    tabIndex="0"
+                >Read more</button>
             )}
 
             {expanded && (

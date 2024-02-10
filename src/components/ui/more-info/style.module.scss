@@ -16,6 +16,7 @@
     &__details {
         font-size: 14px;
         margin: 10px 0 0 0;
+        color: $seconday-color;
 
         @media screen and (min-width: #{$breakpoint-desktop-min}) {
             display: flex;

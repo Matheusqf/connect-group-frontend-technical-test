@@ -15,18 +15,7 @@
     @media screen and (min-width: #{$breakpoint-tablet-min}) {
         flex-direction: column;
     }
-    border-bottom: 1px solid $terciary-color;
 
-    @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
-        border-right: 1px solid $terciary-color;
-    }
-
-    @media (min-width: $breakpoint-desktop-min) {
-        border-bottom: 0;
-        &:not(:last-child) {
-            border-right: 1px solid $terciary-color;
-        }
-    }
     &:not(.loading) {
         cursor: pointer;
     }
@@ -40,5 +29,15 @@
         z-index: 99;
         border: none;
         background-color: $white;
+    }
+
+    &__btn {
+        background-color: $blue;
+        border: 1px solid $terciary-color;
+        color: $white;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 8px;
     }
 }

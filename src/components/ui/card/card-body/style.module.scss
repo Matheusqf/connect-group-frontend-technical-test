@@ -14,6 +14,26 @@ $thumbnail-size-mobile: 170px;
         text-align: center;
         width: 100%;
     }
+
+    // Read more feature
+    animation: fade-in 1s ease-in-out forwards;
+    position: relative;
+    cursor: pointer;
+
+    &:not(:hover) {
+        border-bottom: 1px solid $terciary-color;
+
+        @media (min-width: $breakpoint-tablet-min) and (max-width: $breakpoint-tablet-max) {
+            border-right: 1px solid $terciary-color;
+        }
+
+        @media (min-width: $breakpoint-desktop-min) {
+            border-bottom: 0;
+            &:not(:last-child) {
+                border-right: 1px solid $terciary-color;
+            }
+        }
+    }
 }
 
 .card__body__title {
