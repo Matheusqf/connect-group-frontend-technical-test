@@ -9,6 +9,8 @@ const Card = ({ vehicle, onClick }) => {
     const { id, media } = vehicle;
     const [expanded, setExpanded] = useState(false);
 
+    const isDesktop = window.matchMedia('(min-width: 769px)').matches;
+
     const handleCardClick = () => {
         onClick();
     };
@@ -35,7 +37,8 @@ const Card = ({ vehicle, onClick }) => {
             onKeyDown={handleKeyDown}
         >
             <CardImage media={media} name={`Vehicle ${id} card`} />
-            <CardBody vehicle={vehicle} />{expanded ? (
+            <CardBody vehicle={vehicle} />
+            {isDesktop && (expanded ? (
                 <button
                     className={styles['vehicle-card__btn']}
                     onClick={toggleExpanded}
@@ -49,7 +52,7 @@ const Card = ({ vehicle, onClick }) => {
                     aria-label="Read more"
                     tabIndex="0"
                 >Read more</button>
-            )}
+            ))}
 
             {expanded && (
                 <MoreInfo details={vehicle} onCard={true}></MoreInfo>
